@@ -1,5 +1,6 @@
 <h1>My App</h1>
 <p class="description">Testing</p>
-<app-add></app-add>
-<app-add></app-add>
-<app-add></app-add>
+<app-add
+  (addMoreAdd)="onAddMoreAdd($event)"
+  [addComp]="firstAdd">
+</app-add>

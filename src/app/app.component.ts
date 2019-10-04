@@ -10,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-base';
+  firstAdd = {
+    text: "I am the first addition"
+  };
+
+  onAddMoreAdd(addMore) {
+     
+  }
 }
