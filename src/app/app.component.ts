@@ -11,10 +11,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-base';
   firstAdd = {
-    text: "I am the first addition"
+    text: "I am the first addition",
+    subtitle: "Details",
+    button: "" // anything JS evals to false will work for ngIf
   };
-
+  secondAdd = {
+    text: "I am the second addition",
+    subtitle: null,
+    button: true
+  };
   onAddMoreAdd(addMore) {
-     
+
   }
 }

@@ -21,4 +21,7 @@ export class AdditionalComponent implements OnInit {
     console.log('adding');
     this.addMoreAdd.emit(this.addComp);
   }
+  interacted() {
+    console.log('interacted');
+  }
 }
