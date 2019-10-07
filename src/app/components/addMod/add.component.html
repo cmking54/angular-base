@@ -1,6 +1,8 @@
 <div class="main">
   <h4>{{ addComp.text }}</h4>
-  <div highlight *ngIf="addComp.subtitle">{{addComp.subtitle}}</div>
+  <div [abHighlight]="addComp.isHighlighted" *ngIf="addComp.subtitle">
+    {{addComp.subtitle}}
+  </div>
   <ng-template [ngIf]="addComp.button">
     <button type="button" name="print" (click)="interacted">Test</button>
   </ng-template>
