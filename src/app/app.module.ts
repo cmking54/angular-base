@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core'; // ngmodule marks modules
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component'; // no ext
-import { AdditionalComponent } from './additionalModule/add.component'; // to add another module
-import { AddModListComponent } from './addModList/addModList.component';
+import { AppComponent } from './components/rootMod/app.component'; // no ext
+import { AdditionalComponent } from './components/addMod/add.component'; // to add another module
+import { AddModListComponent } from './components/addModList/addModList.component';
 
 @NgModule({ // not a statement; but a descriptor
   declarations: [ // bring in components, directives, and pipes not from another module
