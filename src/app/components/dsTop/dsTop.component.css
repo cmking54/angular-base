@@ -1,0 +1,95 @@
+#screen {
+  position: relative;
+}
+#field {
+  position: absolute;
+  left: 2px;
+  border: 5px solid;
+  border-radius: 5px;
+
+}
+#opponent {
+  top: 48px;
+  left: 350px;
+  position: absolute;
+}
+#player {
+  top: 150px;
+  left: 95px;
+  position: absolute;
+}
+#opponent, #player {
+  width: 115px;
+  height: 115px;
+}
+.placeholder {
+  border: 3px solid;
+  position: absolute;
+}
+#opponent-name {
+  height: 20px;
+  width: 125px;
+  top: 50px;
+  left: 50px;
+}
+#opponent-level {
+  height: 20px;
+  width: 20px;
+  top: 50px;
+  left: 215px;
+}
+#opponent-health {
+  height: 5px;
+  width: 111px;
+  top: 83px;
+  left: 128px;
+  border: none;
+  background-color: grey;
+}
+#player-name {
+  height: 20px;
+  width: 125px;
+  top: 182px;
+  left: 331px;
+}
+#player-level {
+  height: 20px;
+  width: 20px;
+  top: 182px;
+  left: 496px;
+}
+#player-health {
+  height: 5px;
+  width: 111px;
+  top: 215px;
+  left: 411px;
+  border: none;
+  background-color: grey;
+}
+#player-health-left {
+  height: 14px;
+  width: 20px;
+  top: 226px;
+  left: 450px;
+}
+#player-health-right {
+  height: 14px;
+  width: 20px;
+  top: 226px;
+  left: 492px;
+}
+#player-exp {
+  height: 6px;
+  width: 148px;
+  top: 251px;
+  left: 373px;
+  border: none;
+  background-color: royalblue;
+}
+#chat-box {
+  height: 87px;
+  width: 500px;
+  top: 272px;
+  left: 30px;
+
+}
