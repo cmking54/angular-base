@@ -13,12 +13,14 @@ export class AddModListComponent implements OnInit {
     {
       text: "I am the first addition",
       subtitle: "Details",
-      button: "" // anything JS evals to false will work for ngIf
+      button: "", // anything JS evals to false will work for ngIf
+      fontColor: 'Blue'
     },
     {
       text: "I am the second addition",
       subtitle: null,
-      button: true
+      button: true,
+      fontColor: 'Red'
     }
   ];
 }

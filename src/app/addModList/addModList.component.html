@@ -1,4 +1,7 @@
-<div class="">
-<app-add *ngFor="let add of addModList"
-[addComp]="add"></app-add>
+<div class="main">
+  <app-add *ngFor="let add of addModList"
+      [addComp]="add"
+      [ngClass]="{'font-color-red': add.fontColor === 'Red',
+                  'font-color-blue': add.fontColor === 'Blue'}">
+  </app-add>
 </div>
