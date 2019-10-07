@@ -1,0 +1,8 @@
+<div class="main">
+  <h4>{{ addComp.text }}</h4>
+  <div *ngIf="addComp.subtitle">{{addComp.subtitle}}</div>
+  <ng-template [ngIf]="addComp.button">
+    <button type="button" name="print" (click)="interacted">Test</button>
+  </ng-template>
+  <a (click)="onAdd()"><button type="button" name="add">Add MORE ?</button></a>
+</div>
