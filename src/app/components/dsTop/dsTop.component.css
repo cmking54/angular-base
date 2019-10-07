@@ -1,12 +1,8 @@
-#screen {
-  position: relative;
-}
 #field {
-  position: absolute;
+  position: relative;
   left: 2px;
   border: 5px solid;
   border-radius: 5px;
-
 }
 #opponent {
   top: 48px;

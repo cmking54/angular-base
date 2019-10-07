@@ -8,4 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class DSComponent implements OnInit {
   constructor() {}
   ngOnInit() {}
+  turn = 0;
+  // user input
+  // result (animations, maybe)
+  // repeat
 }
