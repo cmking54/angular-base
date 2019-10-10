@@ -16,7 +16,7 @@ export class DSBottomComponent implements OnInit {
       let changedProp = changes[propName];
       console.log(propName + ": " + changedProp);
       if (propName === "game_state") {
-        this.game_state = changedProp;
+        this.game_state = changedProp.currentValue;
         // this.player = this.game_state.players[0]; // main
         // this.moves = this.player.moves;
         // this.opponent = this.game_state.players[1];

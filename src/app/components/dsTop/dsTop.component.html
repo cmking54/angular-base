@@ -1,7 +1,7 @@
 <div id="screen" class="">
   <img id="field" src="../../assets/images/poke_top_blank.jpg" alt="">
   <img id="opponent"
-      src="https://img.pokemondb.net/sprites/black-white/anim/normal/{{ game_state.players[1].img_name}}.gif"
+      src="https://img.pokemondb.net/sprites/black-white/anim/normal/{{game_state.players[1].name | toImageName}}.gif"
       alt="{{ game_state.players[1].name}}"
       [style.width.px]=" game_state.players[1].img_width">
   <img id="player"

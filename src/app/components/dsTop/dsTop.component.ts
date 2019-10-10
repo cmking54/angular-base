@@ -18,7 +18,8 @@ export class DSTopComponent implements OnInit {
       let changedProp = changes[propName];
       console.log(propName + ": " + changedProp);
       if (propName === "game_state") {
-        this.game_state = changedProp;
+        this.game_state = changedProp.currentValue;
+        // console.log(changedProp.currentValue);
         // this.player = this.game_state.players[0]; // main
         // this.opponent = this.game_state.players[1];
       }

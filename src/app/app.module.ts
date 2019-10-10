@@ -13,11 +13,14 @@ import { DSTopComponent } from './components/dsTop/dsTop.component';
 import { DSBottomComponent } from './components/dsBottom/dsBottom.component';
 import { MoveCardComponent } from './components/moveCard/moveCard.component';
 
+import { ImageNamePipe } from './pipes/toImageName.pipe';
+
 @NgModule({ // not a statement; but a descriptor
   declarations: [ // bring in components, directives, and pipes not from another module
     AppComponent,
     // AdditionalComponent,
     // AddModListComponent,
+    ImageNamePipe,
     HighlightDirective,
     DSComponent, DSTopComponent, DSBottomComponent, MoveCardComponent
   ],

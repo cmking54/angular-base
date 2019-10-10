@@ -40,6 +40,7 @@ export class DSComponent implements OnInit {
     };
     let player = this.game_state.makePlayer(411,111); // main player
     let enemy = this.game_state.makePlayer(128,111); // first opponent
+    console.log(player);
     this.game_state.players.push(player);
     this.game_state.players.push(enemy);
     player.perform = async function(move) {
