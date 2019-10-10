@@ -1,3 +1,7 @@
+* {
+  font-family: gameBoy;
+}
+
 #field {
   position: relative;
   left: 2px;
@@ -22,16 +26,21 @@
   border: 3px solid;
   position: absolute;
 }
+.displaying {
+  font-size: 15px;
+  position: absolute;
+}
 #opponent-name {
   height: 20px;
   width: 125px;
-  top: 50px;
+  top: 54px;
   left: 50px;
+  font-size: 13px;
 }
 #opponent-level {
   height: 20px;
   width: 20px;
-  top: 50px;
+  top: 54px;
   left: 215px;
 }
 #opponent-health {
@@ -45,13 +54,16 @@
 #player-name {
   height: 20px;
   width: 125px;
-  top: 182px;
+  top: 186px;
   left: 331px;
+  font-size: 15px;
+  border: none;
+  font-size: 13px;
 }
 #player-level {
   height: 20px;
   width: 20px;
-  top: 182px;
+  top: 186px;
   left: 496px;
 }
 #player-health {
@@ -66,12 +78,13 @@
   height: 14px;
   width: 20px;
   top: 226px;
-  left: 450px;
+  left: 424px;
 }
 #player-health-right {
   height: 14px;
   width: 20px;
-  top: 226px;
+  font-size: 10px;
+  top: 232px;
   left: 492px;
 }
 #player-exp {

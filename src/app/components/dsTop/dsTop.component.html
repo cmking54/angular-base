@@ -1,22 +1,36 @@
 <div id="screen" class="">
   <img id="field" src="../../assets/images/poke_top_blank.jpg" alt="">
-  <img id="opponent" src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur">
-  <img id="player" src="https://img.pokemondb.net/sprites/black-white/anim/back-shiny/bulbasaur.gif" alt="Bulbasaur">
+  <img id="opponent"
+      src="https://img.pokemondb.net/sprites/black-white/anim/normal/{{ game_state.players[1].img_name}}.gif"
+      alt="{{ game_state.players[1].name}}"
+      [style.width.px]=" game_state.players[1].img_width">
+  <img id="player"
+      src="https://img.pokemondb.net/sprites/black-white/anim/back-shiny/{{ game_state.players[0].img_name}}.gif"
+      alt="{{ game_state.players[0].name}}"
+      [style.width.px]=" game_state.players[0].img_width">
   <div id="opponent-card">
-    <div id="opponent-name" class="placeholder"></div>
-    <div id="opponent-level" class="placeholder"></div>
-    <div id="opponent-health" class="placeholder"></div>
+    <div id="opponent-name" class="displaying">{{ game_state.players[1].name}}</div>
+    <div id="opponent-level" class="displaying">{{ game_state.players[1].level}}</div>
+    <div id="opponent-health" class="placeholder"
+          [style.width.px]=" game_state.players[1].health_width"
+          [style.left.px]=" game_state.players[1].health_left"></div>
   </div>
 
   <div id="player-card">
-    <div id="player-name" class="placeholder"></div>
-    <div id="player-level" class="placeholder"></div>
-    <div id="player-health" class="placeholder"></div>
-    <div id="player-health-left" class="placeholder"></div>
-    <div id="player-health-right" class="placeholder"></div>
-    <div id="player-exp" class="placeholder"></div>
+    <div id="player-name" class="displaying">{{ game_state.players[0].name}}</div>
+    <div id="player-level" class="displaying">{{ game_state.players[0].level}}</div>
+    <div id="player-health" class="placeholder"
+        [style.width.px]=" game_state.players[0].health_width"
+        [style.left.px]=" game_state.players[0].health_left"></div>
+    <div id="player-health-left" class="displaying">{{ game_state.players[0].current_hp}}</div>
+    <div id="player-health-right" class="displaying">{{ game_state.players[0].max_hp}}</div>
+    <div id="player-exp" class="placeholder"
+        [style.width.px]=" game_state.players[0].exp_width"></div>
 </div>
 
-  <div id="chat-box" class="placeholder"></div>
+  <div id="chat-box" class="displaying p-2">
+    {{game_state.text}}
+    <!-- {{player | json}} -->
+  </div>
 
 </div>

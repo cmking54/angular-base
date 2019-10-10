@@ -1,3 +1,12 @@
 <div class="main placeholder">
-
+  <div *ngIf="game_state.battle_started" class="d-flex flex-wrap center p-3">
+    <mv-card *ngFor="let card of game_state.players[0].moves"
+              [move]="card"
+              [player]=" game_state.players[0]"
+              class="flex-fill">
+    </mv-card>
+  </div>
+  <!-- {{player | json}} -->
+  <!-- {{moves | json}} -->
+  <a *ngIf="!game_state.battle_started"(click)="game_state.start()" class="p-3"><button type="button" name="start">Start Battle</button></a>
 </div>
