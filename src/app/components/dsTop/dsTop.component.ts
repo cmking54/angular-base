@@ -16,9 +16,10 @@ export class DSTopComponent implements OnInit {
   ngOnChanges(changes) {
     for (let propName in changes) {
       let changedProp = changes[propName];
-      console.log(propName + ": " + changedProp);
+      // console.log(propName + ": " + changedProp);
       if (propName === "game_state") {
         this.game_state = changedProp.currentValue;
+        // console.log("its me");
         // console.log(changedProp.currentValue);
         // this.player = this.game_state.players[0]; // main
         // this.opponent = this.game_state.players[1];

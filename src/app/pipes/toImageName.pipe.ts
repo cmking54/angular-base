@@ -12,8 +12,10 @@ export class ImageNamePipe implements PipeTransform {
         ret_string += '-m';
       } else if (['	&#9792;'].includes(value.charAt(i))) {
         ret_string += '-f';
-      } else if (['\''].includes(value.charAt(i))) {
+      } else if (['\'', '.'].includes(value.charAt(i))) {
         // ret_string += value.charAt('-m');
+      } else if ([' '].includes(value.charAt(i))) {
+        ret_string += '-';
       } else {
         ret_string += value.charAt(i);
       }

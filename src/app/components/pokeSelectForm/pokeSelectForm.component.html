@@ -1,0 +1,17 @@
+<form #pokeSelectForm="ngForm" class="" action="index.html" method="post"
+      (ngSubmit)="onSubmit(pokeSelectForm.value)">
+  <label for="pokeSelect" class="px-2">Choose your Pokemon</label>
+  <select class="" name="pokeSelect" ngModel>
+    <option *ngFor="let choice of game_state.starter_choices"
+            value="{{choice.name}}">
+      {{choice.name}}
+    </option>
+  </select>
+  <button *ngIf="pokeSelectForm.value.pokeSelect"
+            type="submit"
+            name="submit"
+            class="btn btn-light">
+              I CHOOSE {{pokeSelectForm.value.pokeSelect.toUpperCase()}}
+  </button> <!-- GET CURR SELECT FOR YOU -->
+  <!-- <button *ngIf="!pokeSelectForm.value" type="submit" name="submit" class="btn btn-light">I CHOOSE YOU</button> <!-- GET CURR SELECT FOR YOU -->
+</form>

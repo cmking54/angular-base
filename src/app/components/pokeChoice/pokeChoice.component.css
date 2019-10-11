@@ -1,0 +1,17 @@
+#main {
+  border: 2px solid black;
+  /* width: 200px; */
+  background-color: white;
+}
+#player {
+  height: 100px;
+}
+.pill {
+  border: 2px solid grey;
+  border-radius: 4px;
+}
+.is_highlighted
+{
+  font-weight: bold;
+  border: none;
+}

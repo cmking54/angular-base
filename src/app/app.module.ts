@@ -15,6 +15,9 @@ import { MoveCardComponent } from './components/moveCard/moveCard.component';
 
 import { ImageNamePipe } from './pipes/toImageName.pipe';
 
+import { FormsModule } from '@angular/forms';
+import { PokeSelectFormComponent } from './components/pokeSelectForm/pokeSelectForm.component';
+import { PokeChoiceComponent } from './components/pokeChoice/pokeChoice.component';
 @NgModule({ // not a statement; but a descriptor
   declarations: [ // bring in components, directives, and pipes not from another module
     AppComponent,
@@ -22,11 +25,13 @@ import { ImageNamePipe } from './pipes/toImageName.pipe';
     // AddModListComponent,
     ImageNamePipe,
     HighlightDirective,
-    DSComponent, DSTopComponent, DSBottomComponent, MoveCardComponent
+    DSComponent, DSTopComponent, DSBottomComponent, MoveCardComponent,
+    PokeSelectFormComponent, PokeChoiceComponent
   ],
   imports: [ // bring in other modules that are needed
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] // mark the starting point for the bootstrap process
