@@ -23,7 +23,7 @@ export class Move {
     console.log(this.name + " performed.");
     this.pp_left--;
     if (Math.floor(Math.random()*100) < this.accuracy) {
-      return {success: true, amount: this.power, type: this.type};
+      return {success: true, move: this};
     } else {
       return {success: false};
     }

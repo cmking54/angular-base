@@ -5,6 +5,10 @@
 }
 #player {
   height: 100px;
+
+}
+#bottom, #player {
+  width: 140px;
 }
 .pill {
   border: 2px solid grey;
