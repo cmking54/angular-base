@@ -13,13 +13,12 @@ export class DSComponent implements OnInit {
   constructor() {
     this.game_state = {
       pokedex: require('../../../assets/json/pokedex.json'),
-      players: [],
+      players: {},
       player_chosen: null,
       text: "Waiting for Battle to Start",
       start: function() {
         this.battle_started = true;
-        this.load_init();
-        this.players[0].activateTurn();
+        this.players.main.activateTurn();
       },
       makePlayer: function(start:number, width:number) {
         return new Player(this.random_item(this.pokedex),start,width,this);
@@ -33,20 +32,26 @@ export class DSComponent implements OnInit {
       },
       refresh_choices: function() {
         this.starter_choices = [];
-        let choice_num = 3;
+        let choice_num = 4;
         for (let i = 0; i < choice_num; i++) {
           this.starter_choices.push(this.makePlayer(-1,-1));
         }
       },
+      next: function() {
+        console.log(this.players);
+        this.players.enemy.perform();
+        this.players.main.activateTurn();
+      },
       load_init: function() {
         this.player_chosen.health_start = 411;
         this.player_chosen.health_full_width = 111;
-        let player = this.player_chosen; // main player
+        let main = this.player_chosen; // main player
         let enemy = this.makePlayer(128,111); // first opponent
-        console.log(player);
-        this.players.push(player);
-        this.players.push(enemy);
-        player.perform = async function(move) {
+        // console.log(player);
+        this.players.main = main;
+        this.players.enemy = enemy;
+
+        main.perform = async function(move) {
           if (!this.turn_active) {
             return;
           }
@@ -57,20 +62,27 @@ export class DSComponent implements OnInit {
           } else if (move.pp_left == 1) {
             // set move to be grayed at 1 -> 0
           }
-          var result = move.action();
-          if (result.success) {
-            console.log(this);
-            this.hitText(this.game_state.players[1]); // change to multi-target
-            this.sendDamage(result,this.game_state.players[1]);
+          this.useMoveText(move);
+          await this.sleep(1.25);
+          if (move.hit()) {
+            // console.log(this);
+            this.hitText(this.game_state.players.enemy); // change to multi-target
+            await this.sleep(0.5);
+            this.moveEffectText(move.type, this.game_state.players.enemy.types);
+            await this.sleep(1);
+            if (this.sendDamage(move, this.game_state.players.enemy)) {
+              return; // fainted opponent
+            }
           } else {
             this.missText();
           }
-          await this.sleep(1);
-          // end turn
-          this.game_state.players[1].perform(); // have a queue for move order
+          await this.sleep(1.25);          // end turn
+          this.game_state.players.enemy.perform();
+          // this.game_state.next(); // have a queue for move order
         };
 
-        enemy.perform = async function(move) {
+        enemy.perform = async function() {
+          // console.log(this);
             this.startMoveText(false);
             await this.sleep(1.25);
             var move_num = Math.floor(Math.random()*this.moves.length);
@@ -81,15 +93,21 @@ export class DSComponent implements OnInit {
             }
             this.useMoveText(move);
             await this.sleep(1.25);
-            var result = move.action();
-            if (result.success) {
-              this.hitText(this.game_state.players[0]);
-              this.sendDamage(result, this.game_state.players[0]);
+            if (move.hit()) {
+              // console.log(this);
+              this.hitText(this.game_state.players.main); // change to multi-target
+              await this.sleep(0.5);
+              this.moveEffectText(move.type, this.game_state.players.main.types);
+              await this.sleep(1);
+              if (this.sendDamage(move, this.game_state.players.main)) {
+                return; // fainted main
+              }
             } else {
               this.missText();
             }
             await this.sleep(1.25);
-            this.game_state.players[0].activateTurn();
+            this.game_state.players.main.activateTurn();
+            // this.game_state.players[0].activateTurn();
           }
       }
     };
@@ -104,7 +122,7 @@ export class DSComponent implements OnInit {
   //
   //
   //
-  // opponent_extra = {
+  // this.game_state.players.main_extra = {
   //   opponent: this.player,
   //   game_state: this.game_state
   // }

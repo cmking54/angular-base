@@ -19,13 +19,13 @@ export class Move {
     this.power = json.power;
     this.isHighlighted = false;
   }
-  action() {
+  hit() {
     console.log(this.name + " performed.");
     this.pp_left--;
     if (Math.floor(Math.random()*100) < this.accuracy) {
-      return {success: true, move: this};
+      return true;
     } else {
-      return {success: false};
+      return false;
     }
   }
 

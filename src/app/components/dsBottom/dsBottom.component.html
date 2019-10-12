@@ -1,8 +1,8 @@
 <div class="main placeholder container">
   <div *ngIf="game_state.battle_started" class="d-flex flex-wrap center p-3">
-    <mv-card *ngFor="let card of game_state.players[0].moves"
+    <mv-card *ngFor="let card of game_state.players.main.moves"
               [move]="card"
-              [player]=" game_state.players[0]"
+              [player]="game_state.players.main"
               class="flex-fill">
     </mv-card>
   </div>
@@ -10,8 +10,20 @@
     <pk-choice *ngFor="let choice of game_state.starter_choices"
                 [choice]="choice">
     </pk-choice>
-    <a (click)="game_state.refresh_choices()"><button type="button" name="refresh" class="p-1 btn btn-primary">Refresh</button></a>
     <pk-select-form [game_state]="game_state"></pk-select-form>
+    <a (click)="game_state.refresh_choices()">
+      <button type="button" name="refresh" class="p-1 btn btn-primary">
+        Refresh
+      </button>
+    </a>
   </div>
-  <a *ngIf="!game_state.battle_started && game_state.player_chosen"(click)="game_state.start()" class="p-3"><button type="button" name="start" class="btn btn-primary">Start Battle</button></a>
+  <a *ngIf="!game_state.battle_started && game_state.player_chosen"
+      (click)="game_state.start()"
+      class="p-3">
+        <button type="button"
+                name="start"
+                class="btn btn-primary p-3">
+                  Start Battle
+        </button>
+  </a>
 </div>

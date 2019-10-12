@@ -15,7 +15,7 @@ import { MoveCardComponent } from './components/moveCard/moveCard.component';
 
 import { ImageNamePipe } from './pipes/toImageName.pipe';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PokeSelectFormComponent } from './components/pokeSelectForm/pokeSelectForm.component';
 import { PokeChoiceComponent } from './components/pokeChoice/pokeChoice.component';
 @NgModule({ // not a statement; but a descriptor
@@ -31,7 +31,7 @@ import { PokeChoiceComponent } from './components/pokeChoice/pokeChoice.componen
   imports: [ // bring in other modules that are needed
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent] // mark the starting point for the bootstrap process
