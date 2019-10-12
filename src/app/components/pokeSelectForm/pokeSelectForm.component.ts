@@ -1,13 +1,11 @@
 import { Component, OnInit, Input, OnChanges} from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'pk-select-form',
   templateUrl: 'pokeSelectForm.component.html',
   styleUrls: ['pokeSelectForm.component.css']
 })
 export class PokeSelectFormComponent implements OnInit {
-  constructor() {}
-
   @Input() game_state;
   ngOnChanges(changes) {
     for (let propName in changes) {
@@ -33,8 +31,8 @@ export class PokeSelectFormComponent implements OnInit {
   }
   form: FormGroup;
   ngOnInit() {
-    this.form = new FormGroup({
-      pokeSelect: new FormControl("", Validators.compose([
+    this.form = this.formBuilder.group({
+      pokeSelect: this.formBuilder.control("", Validators.compose([
         Validators.required,
         this.selectValidator
       ]))
@@ -45,4 +43,5 @@ export class PokeSelectFormComponent implements OnInit {
       return null;
     }
   }
+  constructor(private formBuilder: FormBuilder) {}
 }
