@@ -30,12 +30,14 @@ export class DSComponent implements OnInit {
         var n = this.getRandomBounded(items.length);
         return items[n];
       },
+      refreshs: 4, // amount + 1 for setup
       refresh_choices: function() {
         this.starter_choices = [];
-        let choice_num = 4;
+        let choice_num = 3;
         for (let i = 0; i < choice_num; i++) {
           this.starter_choices.push(this.makePlayer(-1,-1));
         }
+        this.refreshs--;
       },
       next: function() {
         console.log(this.players);

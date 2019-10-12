@@ -11,11 +11,15 @@
                 [choice]="choice">
     </pk-choice>
     <pk-select-form [game_state]="game_state"></pk-select-form>
-    <a (click)="game_state.refresh_choices()">
-      <button type="button" name="refresh" class="p-1 btn btn-primary">
-        Refresh
-      </button>
-    </a>
+    <div id="refresh_box" class="">
+      <p>Refresh Attempts Left: {{game_state.refreshs}}</p>
+      <a (click)="game_state.refresh_choices()">
+        <button type="button" name="refresh" class="my-3 mx-1 btn btn-primary"
+                [disabled]="game_state.refreshs<=0">
+          Refresh
+        </button>
+      </a>
+    </div>
   </div>
   <a *ngIf="!game_state.battle_started && game_state.player_chosen"
       (click)="game_state.start()"

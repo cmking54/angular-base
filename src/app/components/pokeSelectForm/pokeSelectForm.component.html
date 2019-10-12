@@ -2,14 +2,17 @@
       class="d-flex flex-column px-2" action="index.html" method="post"
       (ngSubmit)="onSubmit(form.value)">
   <label for="pokeSelect" class="my-2">Choose your Pokemon</label>
-  <select class="my-2" name="pokeSelect" value="game_state.starter_choices[0]"
+  <select class="my-2" name="pokeSelect"
           formControlName="pokeSelect">
     <option *ngFor="let choice of game_state.starter_choices"
             value="{{choice.name}}">
       {{choice.name}}
     </option>
   </select>
-  <button *ngIf="form.value.pokeSelect"
+  <div *ngIf="form.get('pokeSelect').hasError('select')" class="">
+    Choose something???
+  </div>
+  <button [disabled]="!form.valid"
             type="submit"
             name="submit"
             id="submit"
