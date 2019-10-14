@@ -20,7 +20,7 @@ export class Move {
     this.isHighlighted = false;
   }
   hit() {
-    console.log(this.name + " performed.");
+    // console.log(this.name + " performed.");
     this.pp_left--;
     if (Math.floor(Math.random()*100) < this.accuracy) {
       return true;
@@ -33,7 +33,7 @@ export class Move {
     let moves = [];
     if (types.includes("Flying")) {
       types.splice(types.indexOf("Flying"),1);
-      console.log("Flying not supported in moves");
+      // console.log("Flying not supported in moves");
     }
     let max_moves = this.MAX_MOVES;
     for (let n = 0; n < types.length; n++) {

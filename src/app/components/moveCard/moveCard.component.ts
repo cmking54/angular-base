@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MainPlayer } from '../auxiliary/mainPlayer';
 
 @Component({
   selector: 'mv-card',
@@ -10,4 +11,10 @@ export class MoveCardComponent implements OnInit {
   ngOnInit() {}
   @Input() move;
   @Input() player;
+  onClick() {
+    if (this.player instanceof MainPlayer) {
+      this.player.perform(move);
+    }
+  }
 }
+// TODO: style card by type

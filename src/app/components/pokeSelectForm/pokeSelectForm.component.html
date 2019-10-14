@@ -1,23 +1,35 @@
-<form [formGroup]="form" id="form"
-      class="d-flex flex-column px-2" action="index.html" method="post"
-      (ngSubmit)="onSubmit(form.value)">
-  <label for="pokeSelect" class="my-2">Choose your Pokemon</label>
-  <select class="my-2" name="pokeSelect"
-          formControlName="pokeSelect">
-    <option *ngFor="let choice of game_state.starter_choices"
-            value="{{choice.name}}">
-      {{choice.name}}
-    </option>
-  </select>
-  <div *ngIf="form.get('pokeSelect').hasError('select')" class="">
-    Choose something???
+<div id="main" class="d-flex flex-fill">
+  <form [formGroup]="form" id="form"
+        class="flex-fill d-flex flex-column px-2" action="index.html" method="post"
+        (ngSubmit)="onSubmit(form.value)">
+    <label for="pokeSelect" class="my-2">Choose your Pokemon</label>
+    <select class="my-2" name="pokeSelect"
+            formControlName="pokeSelect">
+      <option *ngFor="let choice of gameState.starter_choices"
+              value="{{choice.name}}">
+        {{choice.name}}
+      </option>
+    </select>
+    <div *ngIf="form.get('pokeSelect').hasError('select')" class="">
+      Choose something???
+    </div>
+    <button [disabled]="!form.value.pokeSelect"
+              type="submit"
+              name="submit"
+              id="submit"
+              class="btn btn-light my-2">
+              CHOOSE
+    </button> <!-- GET CURR SELECT FOR YOU -->
+    <!-- <button *ngIf="!pokeSelectForm.value" type="submit" name="submit" class="btn btn-light">I CHOOSE YOU</button> <!-- GET CURR SELECT FOR YOU -->
+
+  </form>
+  <div id="refresh_box" class="flex-fill">
+    <p>Refresh Attempts Left: {{gameState.refreshs}}</p>
+    <a (click)="refresh_choices()">
+      <button type="button" name="refresh" class="my-3 mx-1 btn btn-primary"
+              [disabled]="gameState.refreshs<=0">
+        Refresh
+      </button>
+    </a>
   </div>
-  <button [disabled]="!form.valid"
-            type="submit"
-            name="submit"
-            id="submit"
-            class="btn btn-light my-2">
-            CHOOSE
-  </button> <!-- GET CURR SELECT FOR YOU -->
-  <!-- <button *ngIf="!pokeSelectForm.value" type="submit" name="submit" class="btn btn-light">I CHOOSE YOU</button> <!-- GET CURR SELECT FOR YOU -->
-</form>
+</div>

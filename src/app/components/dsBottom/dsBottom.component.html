@@ -1,28 +1,37 @@
 <div class="main placeholder container">
-  <div *ngIf="game_state.battle_started" class="d-flex flex-wrap center p-3">
-    <mv-card *ngFor="let card of game_state.players.main.moves"
+  <div *ngIf="gameState.battle_started" class="d-flex flex-wrap center p-3">
+    <mv-card *ngFor="let card of gameState.main.moves"
               [move]="card"
-              [player]="game_state.players.main"
+              [player]="gameState.main"
               class="flex-fill">
     </mv-card>
+    <a
+        (click)="gameState.slowDown()"
+        class="p-3">
+          <button type="button"
+                  name="slowDown"
+                  class="btn btn-primary p-3">
+                    Slow Down
+          </button>
+    </a>
+    <a
+        (click)="gameState.speedUp()"
+        class="p-3">
+          <button type="button"
+                  name="speedUp"
+                  class="btn btn-primary p-3">
+                    Speed Up
+          </button>
+    </a>
   </div>
-  <div *ngIf="!game_state.player_chosen" class="row d-flex align-items-stretch center p-3">
-    <pk-choice *ngFor="let choice of game_state.starter_choices"
+  <div *ngIf="!gameState.player_chosen" class="row d-flex align-items-stretch center p-3">
+    <pk-choice *ngFor="let choice of gameState.starter_choices"
                 [choice]="choice">
     </pk-choice>
-    <pk-select-form [game_state]="game_state"></pk-select-form>
-    <div id="refresh_box" class="">
-      <p>Refresh Attempts Left: {{game_state.refreshs}}</p>
-      <a (click)="game_state.refresh_choices()">
-        <button type="button" name="refresh" class="my-3 mx-1 btn btn-primary"
-                [disabled]="game_state.refreshs<=0">
-          Refresh
-        </button>
-      </a>
-    </div>
+    <pk-select-form [gameState]="gameState"></pk-select-form>
   </div>
-  <a *ngIf="!game_state.battle_started && game_state.player_chosen"
-      (click)="game_state.start()"
+  <a *ngIf="!gameState.battle_started && gameState.player_chosen"
+      (click)="gameState.start()"
       class="p-3">
         <button type="button"
                 name="start"

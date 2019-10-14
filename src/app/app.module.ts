@@ -18,6 +18,9 @@ import { ImageNamePipe } from './pipes/toImageName.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PokeSelectFormComponent } from './components/pokeSelectForm/pokeSelectForm.component';
 import { PokeChoiceComponent } from './components/pokeChoice/pokeChoice.component';
+
+// import { GameStateService } from './services/gameState.service';
+
 @NgModule({ // not a statement; but a descriptor
   declarations: [ // bring in components, directives, and pipes not from another module
     AppComponent,
@@ -33,7 +36,9 @@ import { PokeChoiceComponent } from './components/pokeChoice/pokeChoice.componen
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ // for services?
+    // GameStateService // included for all
+  ],
   bootstrap: [AppComponent] // mark the starting point for the bootstrap process
 })
 export class AppModule { }
